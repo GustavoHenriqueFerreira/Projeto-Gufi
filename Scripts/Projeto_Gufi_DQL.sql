@@ -22,12 +22,10 @@ FROM evento E
 INNER JOIN tipoEvento te ON E.idTipoEvento = TE.idTipoEvento
 INNER JOIN instituicao i ON E.idInstituicao = i.idInstituicao
 
-
 --SELECIONAR OS DADOS DOS USUÁRIOS MOSTRANDO O TIPO DE USUÁRIO
 SELECT U.nomeUsuario [Usuario] , TU.tituloTipoUsuario
 FROM usuarioCadastrado U
 INNER JOIN tipoUsuario TU ON U.idTipoUsuario = TU.idTipoUsuario
-
 
 --SLECIONAR OS DADOS DOS EVENTOS, DAS INSTITUIÇÕES, DOS TIPOS DE EVENTOS, DOS USUÁRIOS E A SITUAÇÃO DO CONVITE
 SELECT U.nomeUsuario 'Usuário', E.nomeEvento 'Evento', I.nomeInstituicao 'Instituição', TE.tituloTipoEvento 'Tipo de Evento', S.descricao 'Situação', TU.tituloTipoUsuario 'Tipo de Usuário'
@@ -39,10 +37,9 @@ INNER JOIN situacao S ON C.idSituacao = S.idSituacao
 INNER JOIN instituicao I ON  E.idInstituicao = I.idInstituicao
 INNER JOIN tipoUsuario TU ON U.idTipoUsuario = TU.idTipoUsuario
 
-
 --BUSCAR UM USUÁRIO ATRAVÉS DO SEU E-MAIL E SENHA
 SELECT U.nomeUsuario Usuario, TU.tituloTipoUsuario [Tipo de Usuario], U.email Email, U.senha Senha  
-FROM usuarioCadastrado u
-JOIN tipoUsuario tu on u.idTipoUsuario = tu.idTipoUsuario
-WHERE email = 'Lucas@gmail.COM'
+FROM usuarioCadastrado U
+JOIN tipoUsuario TU on U.idTipoUsuario = TU.idTipoUsuario
+WHERE email = 'Lucas@gmail.com'
 AND senha = '4321'
